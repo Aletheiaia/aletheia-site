@@ -185,13 +185,14 @@
     .tp-chart-card{padding:28px;position:relative;overflow:hidden}
     .tp-chart-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(61,168,245,0.06),transparent 50%),radial-gradient(circle at 80% 20%,rgba(200,170,90,0.04),transparent 50%);pointer-events:none}
     .tp-chart-wrap{position:relative;height:320px;margin-top:20px}
-    .tp-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
-    .tp-kpi{padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015);text-align:center}
+    .tp-kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:20px}
+    .tp-kpi{padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015);text-align:center}
     .tp-kpi small{display:block;font-family:var(--fh);font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(184,176,160,0.55)}
     .tp-kpi strong{display:block;margin-top:6px;font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
     .tp-kpi strong.green{color:var(--ok)}
     .tp-kpi strong.gold{color:var(--gold-s)}
     .tp-kpi strong.blue{color:var(--blue-l)}
+    .tp-kpi strong.bad-t{color:var(--bad)}
     .tp-sidebar{display:flex;flex-direction:column;gap:16px}
     .tp-info{padding:24px;display:flex;flex-direction:column;gap:16px}
     .tp-info h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
@@ -206,7 +207,7 @@
     .tp-detail li::before{content:"";margin-top:5px;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px rgba(61,168,245,0.3)}
     .tp-disc{margin-top:12px;padding:14px;border-radius:14px;border:1px dashed rgba(255,255,255,0.06);font-size:.78rem;color:rgba(184,176,160,0.5);line-height:1.45}
     @media(max-width:1180px){.tp-layout{grid-template-columns:1fr}}
-    @media(max-width:760px){.tp-kpis{grid-template-columns:1fr}.tp-chart-wrap{height:240px}}
+    @media(max-width:760px){.tp-kpis{grid-template-columns:repeat(3,1fr)}.tp-chart-wrap{height:240px}}
 
     .ct-sh{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .cta-h{padding:28px;position:relative;overflow:hidden;background:radial-gradient(circle at 10% 10%,rgba(61,168,245,0.1),transparent 40%),radial-gradient(circle at 90% 90%,rgba(200,170,90,0.1),transparent 40%),linear-gradient(180deg,rgba(255,255,255,0.025),rgba(255,255,255,0.005)),var(--panel)}
@@ -312,7 +313,7 @@
       .ct-sh{gap:12px}.cta-h{padding:20px}.cta-h h2{font-size:clamp(1.5rem,5vw,2rem)}
       .ct-sub{gap:12px}.ct-info,.ct-form{padding:18px}
       .tp-layout{gap:12px}.tp-chart-card{padding:18px}.tp-chart-wrap{height:200px}
-      .tp-kpis{grid-template-columns:1fr}.tp-info{padding:18px}
+      .tp-kpis{grid-template-columns:repeat(2,1fr)}.tp-info{padding:18px}
       .ftr-in{flex-direction:column;align-items:flex-start;padding:16px}
       .ftr-l{flex-direction:column;align-items:flex-start;gap:10px}
       .ftr-n{flex-wrap:wrap;gap:12px}
@@ -436,21 +437,30 @@
           <div class="tp-chart-wrap"><canvas id="eqChart"></canvas></div>
           <div class="tp-kpis">
             <div class="tp-kpi"><small data-i="kpiStartL"></small><strong class="gold">$1,341</strong></div>
-            <div class="tp-kpi"><small data-i="kpiNowL"></small><strong class="green" id="kpiNow">$1,761</strong></div>
-            <div class="tp-kpi"><small data-i="kpiGrowL"></small><strong class="green" id="kpiGrow">+31.3%</strong></div>
+            <div class="tp-kpi"><small data-i="kpiNowL"></small><strong class="green" id="kpiNow">$1,795</strong></div>
+            <div class="tp-kpi"><small data-i="kpiGrowL"></small><strong class="green" id="kpiGrow">+33.8%</strong></div>
+            <div class="tp-kpi"><small data-i="kpiDdL"></small><strong class="bad-t">-13.7%</strong></div>
+            <div class="tp-kpi"><small data-i="kpiWrL"></small><strong class="green">64%</strong></div>
+            <div class="tp-kpi"><small data-i="kpiShL"></small><strong class="blue">2.14</strong></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:16px;padding:10px 16px;border-radius:12px;border:1px solid rgba(240,185,11,0.12);background:rgba(240,185,11,0.03)">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0L7.5 4.5l-3-3L0 6l6 6-6 6 4.5 4.5 3-3L12 24l4.5-4.5 3 3L24 18l-6-6 6-6-4.5-4.5-3 3L12 0z" fill="#f0b90b"/></svg>
+            <span style="font-family:var(--fh);font-size:.72rem;font-weight:600;color:#f0b90b;letter-spacing:.08em">BINANCE USD-M FUTURES</span>
+            <span style="font-size:.72rem;color:rgba(184,176,160,0.45);margin-left:auto">Non-custodial · Verified</span>
           </div>
         </div>
         <div class="tp-sidebar">
           <div class="tp-info card" data-r>
             <h3 data-i="projInfoT"></h3>
             <p data-i="projInfoD"></p>
-            <div class="tp-highlight"><strong>+31.3%</strong><span data-i="projHiSpan"></span></div>
+            <div class="tp-highlight"><strong>+33.8%</strong><span data-i="projHiSpan"></span></div>
             <ul class="tp-detail">
               <li data-i="projD1"></li>
               <li data-i="projD2"></li>
               <li data-i="projD3"></li>
               <li data-i="projD4"></li>
             </ul>
+            <a class="btn btn-o" href="#contact" style="width:100%;margin-top:16px" data-i="projCta"></a>
             <div class="tp-disc" data-i="projDisc"></div>
           </div>
         </div>
@@ -468,9 +478,9 @@
 
     <section class="sec" id="contact"><div class="container">
       <div class="ct-sh">
-        <div class="cta-h card" data-r><span class="tag" data-i="nav6"></span><h2 data-i="ctaH"></h2><p data-i="ctaD"></p><div class="cta-b"><a class="btn btn-g" href="#iF" data-i="ctaBtn1"></a><a class="btn btn-o" href="mailto:info@aletheia-systems.com" data-i="ctaBtn2"></a></div><div class="fut"><strong data-i="futT"></strong><span data-i="futD"></span></div></div>
+        <div class="cta-h card" data-r><span class="tag" data-i="nav6"></span><h2 data-i="ctaH"></h2><p data-i="ctaD"></p><div class="cta-b"><a class="btn btn-g" href="#iF" data-i="ctaBtn1"></a><a class="btn btn-o" href="/cdn-cgi/l/email-protection#b7ded9d1d8f7d6dbd2c3dfd2ded69ac4cec4c3d2dac499d4d8da" data-i="ctaBtn2"></a></div><div class="fut"><strong data-i="futT"></strong><span data-i="futD"></span></div></div>
         <div class="ct-sub">
-          <aside class="ct-info card" data-r><h3 data-i="ciT"></h3><p data-i="ciD"></p><ul class="cl"><li><strong>Email</strong><span><a href="mailto:info@aletheia-systems.com">info@aletheia-systems.com</a></span></li><li><strong data-i="ciIdealT"></strong><span data-i="ciIdealD"></span></li><li><strong data-i="ciFmtT"></strong><span data-i="ciFmtD"></span></li></ul></aside>
+          <aside class="ct-info card" data-r><h3 data-i="ciT"></h3><p data-i="ciD"></p><ul class="cl"><li><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection#fe97909891be9f929b8a969b979fd38d878d8a9b938dd09d9193"><span class="__cf_email__" data-cfemail="6801060e072809040d1c000d0109451b111b1c0d051b460b0705">[email&#160;protected]</span></a></span></li><li><strong data-i="ciIdealT"></strong><span data-i="ciIdealD"></span></li><li><strong data-i="ciFmtT"></strong><span data-i="ciFmtD"></span></li></ul></aside>
           <div class="ct-form card" data-r><h3 data-i="cfT"></h3><p data-i="cfD"></p>
             <form id="iF" class="fg">
               <div class="fr"><div class="fd"><label data-i="lName"></label><input name="name" type="text" data-i-ph="phName" required></div><div class="fd"><label>Email</label><input name="email" type="email" placeholder="nombre@empresa.com" required></div></div>
@@ -492,7 +502,7 @@
     <nav class="ftr-n"><a href="#services" data-i="nav2"></a><a href="#how" data-i="nav3"></a><a href="#cases" data-i="nav5"></a><a href="#project" data-i="navProj"></a><a href="#contact" data-i="nav6"></a></nav>
   </div></footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ═══════════════ i18n TRANSLATIONS ═══════════════ */
   const T={
   es:{
@@ -549,14 +559,15 @@
     cfT:"Intake inicial",cfD:"Formulario listo para conectar con n8n, Make, email, calendario o CRM.",
     lName:"Nombre",phName:"Tu nombre",lComp:"Empresa",phComp:"Nombre de empresa",lType:"Tipo de necesidad",optSel:"Seleccionar",optUns:"No estoy seguro aún",lBot:"Principal cuello de botella",phBot:"Describí qué proceso hoy es manual, caótico o depende de personas específicas.",lVol:"Volumen aproximado",phVol:"Ej. 60 casos por semana",lTime:"Ventana deseada",phTime:"Ej. este mes / trimestre",btnSubmit:"Enviar intake",formNote:"Demo front-end: este formulario no envía datos aún, pero queda estructurado para webhook, CRM, email o agenda.",
     formOk:"Gracias, {name}. En producción estos datos irían a tu CRM, webhook o email automáticamente.",
-    navProj:"Proyecto",
-    projTag:"Proyecto vigente",projT:"Bot de trading algorítmico con participación societaria.",projD:"Sistema autónomo operando en futuros crypto. Rendimiento real, verificable, con participación abierta para socios estratégicos.",
-    projLive:"En producción",projChartT:"Curva de equity — Rendimiento acumulado",projChartSub:"Datos reales de operación. Sin saldo visible, solo rendimiento relativo.",
-    kpiStartL:"Inicio (Ene)",kpiNowL:"Actual",kpiGrowL:"Crecimiento",
-    projInfoT:"Participación societaria",projInfoD:"El sistema opera de forma autónoma en Binance Futures. Abierto a participación con capital y criterio compartido.",
-    projHiSpan:"crecimiento acumulado desde inicio de operación",
-    projD1:"Operación 100% algorítmica sin intervención manual",projD2:"Gestión de riesgo con Kelly Criterion y stops adaptativos",projD3:"Participación con estructura legal y transparencia operativa",projD4:"Reportes periódicos de rendimiento y drawdown",
-    projDisc:"Rendimiento pasado no garantiza resultados futuros. La participación implica riesgo de capital. Estructura disponible bajo acuerdo."
+    navProj:"Sistema live",
+    projTag:"Sistema autónomo en producción",projT:"Automatización aplicada: trading algorítmico con ML en mercados reales.",projD:"Este no es un concepto. Es un sistema propietario operando 24/7 en Binance Futures con machine learning, gestión de riesgo adaptativa y ejecución autónoma. 9 meses de desarrollo, operando en vivo.",
+    projLive:"Operando ahora",projChartT:"Curva de equity — Rendimiento en vivo",projChartSub:"Datos reales. Sin saldo visible, solo rendimiento relativo.",
+    kpiStartL:"Inicio (Ene)",kpiNowL:"Actual",kpiGrowL:"Rendimiento",kpiDdL:"Max drawdown",kpiWrL:"Win rate",kpiShL:"Sharpe ratio",
+    projInfoT:"Qué demuestra este sistema",projInfoD:"No es un producto que vendemos. Es nuestra infraestructura operando con capital propio. Lo mostramos porque creemos que los resultados dicen más que las propuestas.",
+    projHiSpan:"crecimiento acumulado desde inicio de operación live",
+    projD1:"Operación 100% algorítmica — sin intervención manual",projD2:"Gestión de riesgo con Kelly Criterion y stops adaptativos",projD3:"Modelo non-custodial — los fondos nunca salen de tu exchange",projD4:"Infraestructura: Python, CCXT, GitHub Actions CI/CD, ML pipeline",
+    projDisc:"Rendimiento pasado no garantiza resultados futuros. Este dashboard muestra la operación real de un sistema algorítmico propietario con fines demostrativos.",
+    projCta:"¿Interesado en saber más?"
   },
   en:{
     nav1:"What we solve",nav2:"Services",nav3:"Process",nav4:"Credibility",nav5:"Scenarios",nav6:"Contact",
@@ -612,14 +623,15 @@
     cfT:"Initial intake",cfD:"Form ready to connect with n8n, Make, email, calendar, or CRM.",
     lName:"Name",phName:"Your name",lComp:"Company",phComp:"Company name",lType:"Type of need",optSel:"Select",optUns:"Not sure yet",lBot:"Main bottleneck",phBot:"Describe which process today is manual, chaotic, or depends on specific people.",lVol:"Approximate volume",phVol:"E.g. 60 cases per week",lTime:"Desired timeline",phTime:"E.g. this month / quarter",btnSubmit:"Submit intake",formNote:"Front-end demo: this form doesn't send data yet, but is structured for webhook, CRM, email, or calendar.",
     formOk:"Thanks, {name}. In production, this data would go to your CRM, webhook, or email automatically.",
-    navProj:"Project",
-    projTag:"Active project",projT:"Algorithmic trading bot with equity partnership.",projD:"Autonomous system operating in crypto futures. Real, verifiable performance, open to strategic partners.",
-    projLive:"Live in production",projChartT:"Equity curve — Cumulative performance",projChartSub:"Real operational data. No visible balance, only relative performance.",
-    kpiStartL:"Start (Jan)",kpiNowL:"Current",kpiGrowL:"Growth",
-    projInfoT:"Equity partnership",projInfoD:"The system operates autonomously on Binance Futures. Open to participation with shared capital and criteria.",
-    projHiSpan:"cumulative growth since start of operation",
-    projD1:"100% algorithmic operation with no manual intervention",projD2:"Risk management with Kelly Criterion and adaptive stops",projD3:"Participation with legal structure and operational transparency",projD4:"Periodic performance and drawdown reports",
-    projDisc:"Past performance does not guarantee future results. Participation implies capital risk. Structure available under agreement."
+    navProj:"Live system",
+    projTag:"Autonomous system in production",projT:"Applied automation: algorithmic trading with ML in live markets.",projD:"This is not a concept. It's a proprietary system operating 24/7 on Binance Futures with machine learning, adaptive risk management, and autonomous execution. 9 months of development, running live.",
+    projLive:"Operating now",projChartT:"Equity curve — Live performance",projChartSub:"Real data. No balance visible, only relative return.",
+    kpiStartL:"Start (Jan)",kpiNowL:"Current",kpiGrowL:"Return",kpiDdL:"Max drawdown",kpiWrL:"Win rate",kpiShL:"Sharpe ratio",
+    projInfoT:"What this system demonstrates",projInfoD:"This is not a product we sell. It's our own infrastructure running with our own capital. We show it because results speak louder than proposals.",
+    projHiSpan:"cumulative growth since live operation start",
+    projD1:"100% algorithmic operation — no manual intervention",projD2:"Risk management with Kelly Criterion and adaptive stops",projD3:"Non-custodial model — funds never leave your exchange",projD4:"Stack: Python, CCXT, GitHub Actions CI/CD, ML pipeline",
+    projDisc:"Past performance does not guarantee future results. This dashboard shows the live operation of a proprietary algorithmic system for demonstration purposes.",
+    projCta:"Interested in learning more?"
   },
   pt:{
     nav1:"O que resolvemos",nav2:"Serviços",nav3:"Processo",nav4:"Credibilidade",nav5:"Cenários",nav6:"Contato",
@@ -675,14 +687,15 @@
     cfT:"Intake inicial",cfD:"Formulário pronto para conectar com n8n, Make, email, calendário ou CRM.",
     lName:"Nome",phName:"Seu nome",lComp:"Empresa",phComp:"Nome da empresa",lType:"Tipo de necessidade",optSel:"Selecionar",optUns:"Não tenho certeza ainda",lBot:"Principal gargalo",phBot:"Descreva qual processo hoje é manual, caótico ou depende de pessoas específicas.",lVol:"Volume aproximado",phVol:"Ex. 60 casos por semana",lTime:"Prazo desejado",phTime:"Ex. este mês / trimestre",btnSubmit:"Enviar intake",formNote:"Demo front-end: este formulário não envia dados ainda, mas está estruturado para webhook, CRM, email ou agenda.",
     formOk:"Obrigado, {name}. Em produção, esses dados iriam para seu CRM, webhook ou email automaticamente.",
-    navProj:"Projeto",
-    projTag:"Projeto ativo",projT:"Bot de trading algorítmico com participação societária.",projD:"Sistema autônomo operando em futuros crypto. Rendimento real, verificável, com participação aberta para sócios estratégicos.",
-    projLive:"Em produção",projChartT:"Curva de equity — Rendimento acumulado",projChartSub:"Dados reais de operação. Sem saldo visível, apenas rendimento relativo.",
-    kpiStartL:"Início (Jan)",kpiNowL:"Atual",kpiGrowL:"Crescimento",
-    projInfoT:"Participação societária",projInfoD:"O sistema opera de forma autônoma na Binance Futures. Aberto a participação com capital e critério compartilhado.",
-    projHiSpan:"crescimento acumulado desde o início da operação",
-    projD1:"Operação 100% algorítmica sem intervenção manual",projD2:"Gestão de risco com Kelly Criterion e stops adaptativos",projD3:"Participação com estrutura legal e transparência operacional",projD4:"Relatórios periódicos de rendimento e drawdown",
-    projDisc:"Rendimento passado não garante resultados futuros. A participação implica risco de capital. Estrutura disponível sob acordo."
+    navProj:"Sistema live",
+    projTag:"Sistema autônomo em produção",projT:"Automação aplicada: trading algorítmico com ML em mercados reais.",projD:"Isto não é um conceito. É um sistema proprietário operando 24/7 na Binance Futures com machine learning, gestão de risco adaptativa e execução autônoma. 9 meses de desenvolvimento, operando ao vivo.",
+    projLive:"Operando agora",projChartT:"Curva de equity — Performance ao vivo",projChartSub:"Dados reais. Sem saldo visível, apenas rendimento relativo.",
+    kpiStartL:"Início (Jan)",kpiNowL:"Atual",kpiGrowL:"Rendimento",kpiDdL:"Max drawdown",kpiWrL:"Win rate",kpiShL:"Sharpe ratio",
+    projInfoT:"O que este sistema demonstra",projInfoD:"Não é um produto que vendemos. É nossa infraestrutura operando com capital próprio. Mostramos porque acreditamos que resultados falam mais que propostas.",
+    projHiSpan:"crescimento acumulado desde início da operação live",
+    projD1:"Operação 100% algorítmica — sem intervenção manual",projD2:"Gestão de risco com Kelly Criterion e stops adaptativos",projD3:"Modelo non-custodial — os fundos nunca saem do seu exchange",projD4:"Stack: Python, CCXT, GitHub Actions CI/CD, ML pipeline",
+    projDisc:"Rendimento passado não garante resultados futuros. Este dashboard mostra a operação real de um sistema algorítmico proprietário com fins demonstrativos.",
+    projCta:"Interessado em saber mais?"
   }
   };
 
@@ -760,7 +773,8 @@
       {d:'01 Mar',v:1862},{d:'02 Mar',v:1835},{d:'03 Mar',v:1798},{d:'04 Mar',v:1765},
       {d:'05 Mar',v:1738},{d:'06 Mar',v:1710},{d:'07 Mar',v:1695},{d:'08 Mar',v:1680},
       {d:'09 Mar',v:1692},{d:'10 Mar',v:1715},{d:'11 Mar',v:1738},{d:'12 Mar',v:1749},
-      {d:'13 Mar',v:1761}
+      {d:'13 Mar',v:1761},
+      {d:'14 Mar',v:1795}
     ];
     const labels=ms.map(m=>m.d);
     const values=ms.map(m=>m.v);
@@ -799,12 +813,4 @@
           }
         },
         scales:{
-          x:{grid:{color:'rgba(255,255,255,0.03)',drawTicks:false},ticks:{color:'rgba(184,176,160,0.4)',font:{family:'Sora',size:10},maxRotation:0,autoSkip:true,maxTicksLimit:8},border:{display:false}},
-          y:{grid:{color:'rgba(255,255,255,0.03)',drawTicks:false},ticks:{color:'rgba(184,176,160,0.4)',font:{family:'Sora',size:10},callback:function(v){return '$'+v}},border:{display:false},beginAtZero:false}
-        }
-      }
-    });
-  })();
-  </script>
-</body>
-</html>
+          x:{grid:{color:'rgba(255,255,255,0.03)',drawTicks:false},ticks:{color:'rgba(184,176,160,0.4)',font:{family:'Sora',size:10},maxRotation:0,autoSkip:true,maxTicksLimi
